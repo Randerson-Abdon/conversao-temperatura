@@ -1,0 +1,13 @@
+FROM node:14.17.5
+#cria e seta o diretorio de instalacao
+WORKDIR /app
+#copia o arquivo de instalacao
+COPY package*.json ./
+#instala as dependencias
+RUN npm install
+#copia os arquivos do projeto
+COPY . .
+#expoe a porta de acesso
+EXPOSE 8080
+#comando de execucao do container
+CMD ["node", "server.js"]
